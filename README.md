@@ -8,9 +8,9 @@
 
 * Instruções de instalação:
 
-    - Alguma
+    - Por conta do Reactjs, é necessário ter o Nodejs e NPM instalado. Para a API em ASP.NET, é necessário ter o runtime do .NET para iniciar o servidor.
 
-    - Alguma outra
+    - Para o aplicativo do frontend, basta entrar na pasta e digitar 'npm install' para instalar as dependências.
 
     - Alguma outra aí.
 
