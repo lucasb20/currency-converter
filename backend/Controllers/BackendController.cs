@@ -6,11 +6,22 @@ namespace Backend.Controllers;
 [Route("currency")]
 public class CurrencyController : ControllerBase
 {
-    [HttpGet]
+    [HttpGet("flags")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult GetCurrency(){
 
-        var json = new { teste = "testando", vamos = 123 };
+        HttpClient client = new();
+
+        string accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY");
+
+        string fixer_url = "http://data.fixer.io/api/latest" + "?access_key="+ accessKey;
+
+        var request = client.GetStringAsync(fixer_url);
+        
+        var json = new {
+            teste = request
+        };
 
         return new JsonResult(json);
     }
