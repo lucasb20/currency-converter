@@ -10,7 +10,7 @@ public class CurrencyController : ControllerBase
     [HttpGet("flags")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetCurrency(){
+    public async Task<IActionResult> GetCurrencyList(){
 
         HttpClient client = new();
 
@@ -38,5 +38,32 @@ public class CurrencyController : ControllerBase
         };
 
         return new JsonResult(json);
+    }
+
+    [HttpPost("convert")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetConvert([FromBody] JsonElement data){
+         if (data.TryGetProperty("source", out var source))
+            {
+                HttpClient client = new();
+
+                string? accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY");
+
+                string fixer_url = "http://data.fixer.io/api/latest" + "?access_key="+ accessKey+"&base="+source.ToString();
+
+                var request = await client.GetStringAsync(fixer_url);
+
+                using (JsonDocument document = JsonDocument.Parse(request))
+                {
+                    JsonElement root = document.RootElement;
+                    JsonElement rates = root.GetProperty("rates");
+                    return new JsonResult(rates);
+                }
+            }
+            else
+            {
+                return BadRequest("O JSON deve conter as chaves 'source' e 'destiny'.");
+            }
     }
 }

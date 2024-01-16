@@ -30,9 +30,9 @@ O objetivo do Currency Converter é fornecer uma ferramenta fácil de usar para 
 
 **Instalação da API**
 
-1. Entre na pasta backend 
-2. Compile e execute usando o comando 'dotnet run'
-3. Não faço ideia de como fazer isso sem o SDK Dotnet
+1. Entre na pasta backend
+2. Crie uma variável de ambiente chamada `ACCESS_KEY` em um arquivo .env, sendo ela uma access_key da API do fixer.io
+3. Compile e execute usando o comando `dotnet run`
 
 **Screenshots**
 
