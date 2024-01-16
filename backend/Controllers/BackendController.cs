@@ -25,9 +25,12 @@ public class CurrencyController : ControllerBase
         using (JsonDocument document = JsonDocument.Parse(request))
         {
             JsonElement root = document.RootElement;
-            Console.WriteLine(root);
             JsonElement baseSymbol = root.GetProperty("base");
             symbols.Add(baseSymbol.ToString());
+            JsonElement rates = root.GetProperty("rates");
+            foreach(JsonProperty otherSymbol in rates.EnumerateObject()){
+                symbols.Add(otherSymbol.Name);
+            }
         }
 
         var json = new {

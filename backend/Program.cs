@@ -21,13 +21,6 @@ var root = Directory.GetCurrentDirectory();
 var dotenv = Path.Combine(root, ".env");
 DotEnv.Load(dotenv);
 
-/*
-var config =
-    new ConfigurationBuilder()
-        .AddEnvironmentVariables()
-        .Build();
-*/
-
 app.UseHttpsRedirection();
 
 app.MapControllers();
