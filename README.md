@@ -32,7 +32,7 @@ O objetivo do Currency Converter é fornecer uma ferramenta fácil de usar para 
 
 1. Entre na pasta backend
 2. Crie uma variável de ambiente chamada `ACCESS_KEY` em um arquivo .env, sendo ela uma access_key da API do fixer.io
-3. Compile e execute usando o comando `dotnet run`
+3. Compile e execute em modo de desenvolvimento usando o comando `dotnet run`
 
 **Screenshots**
 
