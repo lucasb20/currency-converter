@@ -36,4 +36,8 @@ O objetivo do Currency Converter é fornecer uma ferramenta fácil de usar para 
 
 **Screenshots**
 
-[Screenshots adicionais do aplicativo]
+![Conversão USB para BRL](other/Screenshot_1.png)
+
+![Conversão BRL para ARS](other/Screenshot_2.png)
+
+![Conversão BTC para BRL](other/Screenshot_3.png)
