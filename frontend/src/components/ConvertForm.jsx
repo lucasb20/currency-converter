@@ -1,8 +1,7 @@
 import React, { useEffect, useRef , useState } from "react"
-import {dataSimulate} from "../data"
 
 export const ConvertForm = () => {
-    const [amount, setAmount] = useState(1.0000)
+    const [amount, setAmount] = useState(1)
     const [result, setResult] = useState(0)
     const [currencyBase, setCurrencyBase] = useState("USD")
     const [currencyTarget, setCurrencyTarget] = useState("BRL")
@@ -30,16 +29,13 @@ export const ConvertForm = () => {
             fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log("data", data)
+                setSymbols(data.symbols)
+                setRates(data.values)
+                const rateTime = new Date(data.timestamp)
+                setTimestemp(rateTime.toLocaleString())
             })
             .catch(error => {
                 console.log("error", error)
-                const dataJson =  JSON.parse(dataSimulate())
-                setSymbols(dataJson.symbols)
-                setRates(dataJson.values)
-                console.log(dataJson.timestamp)
-                const rateTime = new Date(dataJson.timestamp)
-                setTimestemp(rateTime.toLocaleString())
             })
 
             requested.current = true
@@ -95,10 +91,10 @@ export const ConvertForm = () => {
             </div>
 
             <div>
-                <p className="output" style={{textAlign:"center"}}>Result: {result} {currencyTarget}</p>
+                <p className="output" style={{textAlign:"center"}}>Result: {currencyTarget} {result}</p>
             </div>
                 <div>
-                    <p>1 {currencyBase} = {calculateConvert(1, currencyBase, currencyTarget)} {currencyTarget}</p>
+                    <p>{currencyBase} 1 = {currencyTarget} {calculateConvert(1, currencyBase, currencyTarget)}</p>
                     <p>Timestamp: {timestemp}</p>
                 </div>
         </form>    
