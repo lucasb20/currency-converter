@@ -1,38 +1,46 @@
 # Currency Converter
 
-**Descrição**
+**Description**
 
-Currency Converter é um aplicativo web que permite converter o valor de uma moeda para outra. O aplicativo é feito em React e ASP.NET e usa a API do site fixer.io para obter as taxas de câmbio.
+Currency Converter is a web application that allows converting the value of one currency to another. The application is built with React and ASP.NET and utilizes the fixer.io website API to fetch exchange rates.
 
-**Recursos**
+**Features**
 
-* Converte entre mais de 100 moedas
-* Permite definir moedas base e de destino
-* Atualiza automaticamente as taxas de câmbio
+* Converts between more than 100 currencies
+* Allows setting base and target currencies
+* Automatically updates exchange rates
 
-**Objetivos**
+**Objectives**
 
-O objetivo do Currency Converter é fornecer uma ferramenta fácil de usar para converter moedas.
+The objective of Currency Converter is to provide an easy-to-use tool for currency conversion.
 
-**Instruções de instalação**
+**Installation Instructions**
 
-**Requisitos de sistema**
+**System Requirements**
 
-* Node.js 20.10.0
-* NPM 10.2.3
-* .NET 8.0.0
+* Node.js 20.x
+* NPM 10.x
+* .NET 8.x
 
-**Instalação do aplicativo frontend**
+**Frontend Application Installation**
 
-1. Entre na pasta do aplicativo frontend
-2. Execute o comando `npm install` para instalar as dependências
-3. Execute o comando `npm run dev` para iniciar o aplicativo em modo de desenvolvimento
+1. Navigate to the frontend application folder
+2. Run `npm install` command to install dependencies
+3. Run `npm run dev` command to start the application in development mode
 
-**Instalação da API**
+**API Installation**
 
-1. Entre na pasta backend
-2. Crie uma variável de ambiente chamada `ACCESS_KEY` em um arquivo .env, sendo ela uma access_key da API do fixer.io
-3. Compile e execute em modo de desenvolvimento usando o comando `dotnet run`
+1. Navigate to the backend folder
+2. Create an environment variable named `ACCESS_KEY` in a .env file, with an access_key from the fixer.io API
+3. Compile and run in development mode using the `dotnet run` command
+
+**Docker Compose**
+
+If you have Docker installed, you can also run the project using Docker Compose.
+
+1. Navigate to the project directory where the `docker-compose.yml` file is located
+
+2. Run `docker-compose up --build` command to build and start the containers
 
 **Screenshots**
 
