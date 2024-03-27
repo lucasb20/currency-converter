@@ -24,7 +24,7 @@ export const ConvertForm = () => {
 
     useEffect(() => {
         if (!(requested.current)) {
-            const url = `http://localhost:5233/currency`
+            const url = `http://backend:8080/currency`
 
             fetch(url)
             .then(response => response.json())
